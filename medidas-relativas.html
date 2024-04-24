@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Unidades de Medida</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="medidas-absolutas.html">Medidas Absolutas</a></li>
+                <li><a href="medidas-relativas.html">Medidas Relativas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Medidas Relativas</h1>
+        <img src="" alt="">
+        <p style="text-align: center;">Estas son las que normalmente no estamos acostumbrados. Estas medidas se calculan en base a otra unidad de medida definida, por ejemplo, em y rem. El uso de ellas es más apropiado para que podamos hacer ajustes en diferentes dispositivos asegurando un layout consistente y fluido en distintas medias.
+            Debido a que estas medidas las calcula el navegador en base a otra unidad, suelen ser bastante flexibles. Es decir, podemos tener resultados diferentes según el entorno.
+            
+            </p><br><br><br>
+    <h2>Ems (em)</h2>
+    <p>Nuestra primera unidad relativa es muy famosa en el mundo CSS. Difícilmente encontrarás algún navegador que no admita esta medida, que ha estado presente desde el principio. 
+        Este es definitivamente uno de los puntos que hacen que el em sea muy popular. El segundo punto es sin duda, la facilidad para crear layouts fluidos y responsivos.
+        Pero, ¿cómo funciona este tal em?
+        Esta unidad cambia a los elementos hijos de acuerdo con el tamaño de fuente (font-size) del elemento padre, así que aquí vamos. Digamos que tenemos el siguiente html, lo que me permite la licencia poética para usar la tag style: <br><br>
+        <div class="info-box">
+            <p>
+                &lt;style&gt;
+                #div {
+                    font-size: 16px;
+                }
+                #hijo {
+                    font-size: 2em;
+                }
+            &lt;/style&gt;
+            &lt;div id="padre"&gt;
+                div padre
+                &lt;div id="hijo"&gt;
+                    div hijo
+                &lt;/div&gt;
+            &lt;/div&gt;   
+            </p>
+            
+            
+        </div>        
+        </p><br><br>
+        <h2>Rems (rem, "root em")</h2>
+        <p>
+            El REM viene como sucesor del EM y ambos comparten la misma lógica operativa (font-size), pero la forma de implementación es diferente. Mientras que el em está directamente relacionado con el tamaño de fuente del elemento padre, el rem está relacionado con el tamaño de fuente del elemento root (raíz), en este caso, la tag.
+El hecho de que el rem se relaciona con el elemento raíz soluciona ese problema que teníamos con varias divs (elementos) anidados, ya que no habrá esta "herencia" de tamaños.
+Por ejemplo, sabemos que la tag html es la tag raíz de todo documento html. Dicho esto, si definimos que el font-size de este elemento será de 18 px, por lo que 1rem = 18px, 2rem = 36px y así sucesivamente... Por lo general, los navegadores especifican el tamaño de fuente predeterminado para el elemento root (raíz), 16px, ¡así que guárdelo en su corazón! Aun siendo esta unidad más tranquila para trabajar, no se usaba mucho para el diseño responsivo.
+
+            </p><br><br>
+            <h2>BASE 16PX</h2>
+                <p>
+                    10px = 0.625rem <br>
+                    12px = 0.75rem  <br>
+                    14px = 0.875rem <br>
+                    16px = 1rem <br>
+                    18px = 1.125rem <br>
+                    y así sucesivamente, realmente no son números muy "amigables" o convenientes. Sin embargo, podemos usar un pequeño truco para ayudarnos (62.5%). <br><br>
+
+                    <div class="info-box">
+                        html{
+                            font-size: 62.5%;
+                        }
+                        h1{
+                            font-size: 1.2rem;  /* equivalente a 12px */
+                        }
+                        p{
+                            font-size: 2.4rem; /* equivalente a 24px */
+                        }
+                    </div>
+                    </p><br>Tenga en cuenta que, de esta manera, ¡el valor de píxel siempre será el valor definido en rem por 10! Se vuelve más conveniente.
+
+                    <br><br>
+            <h2>Porcentaje (%)</h2>
+            <p>A pesar de no ser una unidad de medida, el porcentaje se usa a menudo cuando se trata de un layout responsivo y fluido, por lo que no podría dejarlo pasar. El porcentaje nos permite crear módulos que siempre serán readaptados para ocupar la cantidad especificada. Por ejemplo, si definimos un elemento que tiene un tamaño de 50%, independientemente del dispositivo en cuestión, este módulo ocupará siempre la mitad del espacio que le corresponde (si se encuentra dentro de cualquier otro elemento).
+                Tenga en cuenta que si cambiamos el tamaño de la div contenedor, ¡el elemento dentro de él cambiará de tamaño para que siempre ocupe el porcentaje especificado en el CSS!
+                También tenga en cuenta que el slider está cambiando tanto el ancho como la altura del elemento, pero si cambiamos cada uno por separado, ¡también funcionará! Dado este ejemplo, podemos decir que el porcentaje se comporta algo similar a nuestro ya conocido em, ya que se relaciona directamente con el tamaño de la propiedad del elemento padre.
+                Por lo tanto, al trabajar con el porcentaje, tenemos el mismo problema que teníamos con el em, cuantos más elementos anidados, más complicado será definir exactamente el tamaño, ¡así que ten cuidado al usarlo!                
+                </p><br><br>
+                <h2>Ex</h2>
+                <p>Puede que nunca hayas oído hablar de esta unidad del CSS, pero existe. A diferencia de la forma en que EM y el REM funcionaban, esta unidad no está relacionada con el tamaño de la fuente (font-size), sino con qué fuente se está utilizando en ese momento (font-family), más específicamente con el tamaño del carácter x de esta fuente en cuestión (x-height).
+                    ¿Cómo sabe el navegador este valor? Este valor puede venir directamente con la fuente, el navegador puede medir el carácter en minúscula (lower case) y si estos dos no funcionan, el navegador estipula un valor de 0.5em para 1ex.
+                    </p><br><br>
+                    <h2>Width y Height</h2>
+                    <p>Las propiedades width y height (ancho y alto) nos permiten establecer el ancho y/o alto de un elemento. El valor por defecto es auto y se puede establecer en pixeles, ems, rems o %.
+                        IMPORTANTE: El valor establecido se define dentro del padding del elemento, con lo que no incluye los valores de las propiedades padding, margin y border.
+                        Las propiedades min-width, max-width, min-height y max-height anulan, respectivamente, las anteriores width y height.
+                        
+                        </p><br><br>
+                        <h2>Estilos de Textos</h2>
+                        <div class="info-box">
+                            /*text-align */
+	h1{
+	  text-align: left; /* alineación de texto izquierda */
+	  text-align: center; /* alineación de texto centrada */
+	  text-align: right; /* alineación de texto derecha */
+	  text-align: justify; /* alineación de texto justificada */
+	}
+	
+
+	/*text decoration */
+	h1{
+	  text-decoration: underline; /* (subrayado) */
+	  text-decoration: overline; /* (línea por encima del texto) */
+	  text-decoration: line-through; /*  (tachado) */
+	  text-decoration: none; /* (sin decoración) */
+	}
+	
+
+	/*text transformation */
+	h1{
+	  text-transform: uppercase; /* (mayúsculas) */
+	  text-transform: lowercase; /* (minúsculas) */
+	  text-transform: capitalize; /* (primera mayúscula) */
+	  text-decoration: none; /* (sin transformación) */
+	}
+	
+
+	/*text indentation */
+	p{
+	  text-indent: 50px; /* indentación de la primera línea de un párrafo */
+	}
+	
+
+	/*letter spacing */
+	p{
+	  letter-spacing: 3px; /* espacio entre caracteres (admite valores negativos) */
+	}
+	
+
+	/*line height */
+	p{
+	  line-height: 1.5; /* espacio entre líneas de texto */
+	}
+	
+
+	*text direction*/
+	p{
+	  direction: rtl; /* escribe el texto de derecha a izquierda */
+	}
+	
+
+	*word spacing*/
+	p{
+	  word-spacing: 10px; /* espacio entre palabras del párrafo */
+	}
+	
+
+	*text shadow*/
+	p{
+	  text-shadow: 4px 2px blue; /*añade una sombra azul al texto de 4px en horizontal y 2px en vertical */
+	}
+
+                        </div><br><br>
+                        <h2>Margin Y Padding</h2>
+                        <p>En HTML cada elemento es considerado como una caja. El margen (margin) es en realidad el espacio alrededor del elemento, el que se encuentra por fuera del borde de esa caja.
+                            Por el contrario, el estilo padding es el espacio alrededor del contenido del elemento pero dentro de sus bordes.
+                            Para definir tanto margin como padding, se pueden usar diferentes nomenclaturas. Los siguientes ejemplos muestran las más comunes: <br><br>
+                            </p>
+                            <div class="info-box">
+                                div{
+                                    margin-top: 10px; /* margen superior */
+                                    margin-bottom: 8px; /* margen inferior */
+                                    margin-left: 6px; /* margen izquierdo */
+                                    margin-right: 5px; /* margen derecho */
+                                  }
+                                  
+                                  div{
+                                    margin: 10px 5px 8px 6px; /* margen superior, derecho, inferior y izquierdo, en el sentido de las agujas del reloj */
+                                  }
+                                  
+                                  div{
+                                    margin: 10px 20px; /* margen superior e inferior 10px, margen derecho e izquierdo  20px*/
+                                  }
+                                  
+                                  div{
+                                    margin: 10px; /* todos los márgenes del div son de 10px */
+                                  }
+                                  
+                                  div{
+                                    padding-top: 10px; /* padding superior */
+                                    padding-bottom: 8px; /* padding inferior */
+                                    padding-left: 6px; /* padding izquierdo */
+                                    padding-right: 5px; /* padding derecho */
+                                  }
+                                  
+                                  div{
+                                    padding: 10px 5px 8px 6px; /* padding superior, derecho, inferior y izquierdo, en el sentido de las agujas del reloj */
+                                  }
+                                  
+                                  div{
+                                    padding: 10px 20px; /* padding superior e inferior 10px, padding derecho e izquierdo  20px*/
+                                  }
+                                  
+                                  div{
+                                    padding: 10px; /* todos los padding del div son de 10px */
+                                  }
+                                
+                            </div><br><br>
+
+                            <h2>Border</h2>
+                            <p>La propiedad border permite definir en una única regla todos los bordes de los elementos seleccionados. Se puede utilizar border para definir el o los valores siguientes: border-width, border-style, border-color.
+                                Valor inicial: ver propiedades individuales
+                                Se aplica a: todos los elementos
+                                
+                                Sintaxis
+                                border: [border-width || border-style || border-color | inherit] ;
+                                </p>
+                                <br><br>
+                                <h2>border-radius </h2>
+                                <p>La border-radius propiedad define el radio de las esquinas del elemento.
+                                    Sugerencia: ¡ Esta propiedad le permite agregar esquinas redondeadas a los elementos! 
+                                    Esta propiedad puede tener de uno a cuatro valores. Estas son las reglas:
+                                    Cuatro valores - border-radius: 15px 50px 30px 5px; (el primer valor se aplica a la esquina superior izquierda, el segundo valor se aplica a la esquina superior derecha, el tercer valor se aplica a la esquina inferior derecha y el cuarto valor se aplica a la esquina inferior izquierda):
+                                    
+                                    
+                                    
+                                    </p>
+    </main>
+   
+    <footer>
+        <div class="footer-content">
+            <p>Todos los derechos reservados &copy; 2024</p>
+        </div>
+    </footer>
+</body>
+</html>

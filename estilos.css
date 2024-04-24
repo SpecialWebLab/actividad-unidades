@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: antiquewhite;
+   
+}
+main{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+
+nav{
+
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(72, 72, 72);
+    height: 30px;
+    padding: 20px;
+}
+nav ul {
+    list-style-type: none; /* Quita los puntos de lista */
+    padding: 0;
+    display: flex; /* Hace que los elementos de la lista estén en línea */
+}
+
+nav ul li a {
+    margin-right: 20px; /* Añade un espacio entre los elementos */
+    color: #fff;
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5em;
+}
+nav ul li a:hover{
+    background-color: gray;
+
+}
+
+img{
+    width: 200px;
+   
+    
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    min-height: 100vh;
+    font-size: 20px;
+}
+
+h1{
+    text-align: center;
+    margin-top: 40px;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+}
+.container h2{
+    text-align: center;
+}
+
+footer {
+    background-color: #333; /* Color de fondo oscuro que puede combinar bien */
+    color: #fff; /* Color del texto blanco */
+    padding: 20px; /* Espaciado interior para mayor legibilidad */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}
+
+.footer-content p{
+    font-size: 20px;
+}
+.info-box {
+    background-color: #f0f0f0; /* Color de fondo */
+    border: 1px solid #ccc; /* Borde */
+    padding: 20px; /* Espaciado interno */
+    max-width: 400px; /* Ancho máximo */
+    margin: 0 auto; /* Centrar horizontalmente */
+    white-space: pre-wrap;
+    color: #333;
+}
